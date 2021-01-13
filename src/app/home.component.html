@@ -1,0 +1,33 @@
+<a [routerLink]="['/demo/demo-next']">
+  Go to next page
+</a>
+
+
+<!-- Non async pipe -->
+<!-- <p>
+  {{ emojisTxt }}
+</p> -->
+
+
+
+
+
+<!-- Demo async -->
+<!-- <p>
+  {{ emojis | async}}
+</p> -->
+
+
+
+<!-- Demo async for -->
+<h3>This is a list of emoji table generated using ngFor with async pipe</h3>
+<table>
+ <thead>
+    <tr>
+    <th>Emoji List</th>
+    </tr>
+ </thead>
+  <tbody>
+    <tr style="border: solid" *ngFor="let emojiLis of emojiList | async">{{emojiLis}}</tr>
+  </tbody>
+</table>
