@@ -1,11 +1,11 @@
 <a [routerLink]="['/demo/demo-next']">
-  Go to next page
+	Go to next page
 </a>
 
 
 <!-- Non async pipe -->
 <!-- <p>
-  {{ emojisTxt }}
+	{{ emojisTxt }}
 </p> -->
 
 
@@ -13,21 +13,27 @@
 
 
 <!-- Demo async -->
-<!-- <p>
-  {{ emojis | async}}
-</p> -->
+<p>
+	<!-- When navigate to other pages, not listen to Observable, does same thing as 'ngUnsubscribe', no need to create variable in .ts to listen to the changes of value, can straight away listen to the Observable and show it in html -->
+	{{ emojis | async}}
+</p>
 
 
 
 <!-- Demo async for -->
 <h3>This is a list of emoji table generated using ngFor with async pipe</h3>
 <table>
- <thead>
-    <tr>
-    <th>Emoji List</th>
-    </tr>
- </thead>
-  <tbody>
-    <tr style="border: solid" *ngFor="let emojiLis of emojiList | async">{{emojiLis}}</tr>
-  </tbody>
+	<thead>
+		<tr>
+			<th>Emoji List</th>
+		</tr>
+	</thead>
+	<tbody>
+		<!-- Observable (Asynchronous Method) -->
+		<tr style="border: solid" *ngFor="let emojiLis of emojiList | async">{{emojiLis}}</tr>
+
+		<!-- Also can apply Asynchronous Observable in class -->
+		<!-- If 'emojiLis' is to provide boolean value  -->
+		<!-- <tr [class.someStyle]="(emojiLis|async)" *ngFor="let emojiLis of emojiList | async">{{emojiLis}}</tr> -->
+	</tbody>
 </table>
